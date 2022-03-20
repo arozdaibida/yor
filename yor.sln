@@ -5,6 +5,10 @@ VisualStudioVersion = 17.0.32014.148
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "yor-auth-api", "yor-auth-api\yor-auth-api.csproj", "{E25AE5AE-8083-46EA-A374-00B7D0FE7B28}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{FFC9FC52-B823-45C8-A16C-20367D7045B7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "yor-database-infrastructure", "yor-database-infrastructure\yor-database-infrastructure.csproj", "{4F33D562-D025-4D57-B63C-18F5AF463902}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,9 +19,16 @@ Global
 		{E25AE5AE-8083-46EA-A374-00B7D0FE7B28}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E25AE5AE-8083-46EA-A374-00B7D0FE7B28}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E25AE5AE-8083-46EA-A374-00B7D0FE7B28}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4F33D562-D025-4D57-B63C-18F5AF463902}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4F33D562-D025-4D57-B63C-18F5AF463902}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4F33D562-D025-4D57-B63C-18F5AF463902}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4F33D562-D025-4D57-B63C-18F5AF463902}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{4F33D562-D025-4D57-B63C-18F5AF463902} = {FFC9FC52-B823-45C8-A16C-20367D7045B7}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C823D628-2D5F-4837-8F95-AC65911C5865}

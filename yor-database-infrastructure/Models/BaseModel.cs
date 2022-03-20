@@ -1,8 +1,8 @@
-﻿namespace yor_auth_api.Model
+﻿namespace yor_database_infrastructure.Models
 {
-    public class BaseEntity
+    public class BaseModel
     {
-        public string Id { get; set; }
+        public Guid Id { get; set; }
 
         public DateTime CreatedAt { get; set; }
 

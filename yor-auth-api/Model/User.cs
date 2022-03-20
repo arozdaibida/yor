@@ -1,6 +1,8 @@
-﻿namespace yor_auth_api.Model
+﻿using yor_database_infrastructure.Models;
+
+namespace yor_auth_api.Model
 {
-    public class User
+    public class User : BaseModel
     {
         public string FirstName { get; set; }
 
