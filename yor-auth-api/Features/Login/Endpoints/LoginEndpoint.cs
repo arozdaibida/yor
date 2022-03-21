@@ -1,7 +1,9 @@
 ﻿using FastEndpoints;
+
 using MediatR;
-using yor_auth_api.Features.Login.Commands;
+
 using yor_auth_api.Features.Login.Models;
+using yor_auth_api.Features.Login.Queries;
 
 namespace yor_auth_api.Features.Login.Endpoints
 {
@@ -25,7 +27,7 @@ namespace yor_auth_api.Features.Login.Endpoints
         public async override Task HandleAsync(LoginRequest req, CancellationToken ct)
         {
             var response = await _mediator.Send(
-                new LoginCommand
+                new LoginQuery
                 {
                     Login = req.Login,
                     Password = req.Password

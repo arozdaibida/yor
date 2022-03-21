@@ -28,8 +28,4 @@
     <ProjectReference Include="..\yor-database-infrastructure\yor-database-infrastructure.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Features\Registration\" />
-  </ItemGroup>
-
 </Project>

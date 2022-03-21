@@ -5,8 +5,10 @@ using MediatR;
 
 using yor_auth_api.Application.Configures;
 using yor_auth_api.Application.Extensions;
+using yor_auth_api.Infrastructure.AuthUnitOfWork;
 using yor_auth_api.Infrastructure.Contracts;
 using yor_auth_api.Infrastructure.Repositories;
+
 using yor_database_infrastructure.Contracts;
 using yor_database_infrastructure.Repositories;
 
@@ -24,7 +26,8 @@ builder.Services
 
 builder.Services
     .AddTransient(typeof(IBaseRepository<>), typeof(BaseRepository<>))
-    .AddTransient<IAuthRepository, AuthRepository>();
+    .AddTransient<IAuthRepository, AuthRepository>()
+    .AddTransient<IAuthUnitOfWork, AuthUnitOfWork>();
 
 var app = builder.Build();
 
