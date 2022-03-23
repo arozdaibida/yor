@@ -25,19 +25,16 @@ namespace yor_auth_api.Features.GetCurrentUser.Endpoints
 
         public override async Task HandleAsync(CancellationToken ct)
         {
-            var userId = User.Claims.FirstOrDefault(x => 
-                x.Type == Constants.JwtToken.Claims.UserIdClaim).Value;
-
-            if (userId is null)
-            {
-                await SendNotFoundAsync();
-            }
-
             var user = await _mediator.Send(
                 new GetCurrentUserQuery 
                 { 
-                    UserId = new Guid(userId) 
+                    Claims = User
                 });
+
+            if (user is null)
+            {
+                await SendUnauthorizedAsync();
+            }
 
             await SendOkAsync(user);
         }

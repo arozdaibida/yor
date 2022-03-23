@@ -1,25 +1,23 @@
 ﻿using MediatR;
 
+using yor_auth_api.Application.Services;
 using yor_auth_api.Features.GetCurrentUser.Models;
-using yor_auth_api.Features.Specifications;
-using yor_auth_api.Infrastructure.Contracts;
 
 namespace yor_auth_api.Features.GetCurrentUser.Queries
 {
     public class GetCurrentUserQueryHandler : IRequestHandler<GetCurrentUserQuery, GetCurrentUserResponse>
     {
-        private readonly IAuthRepository _authRepository;
+        private readonly IAuthService _authService;
 
-        public GetCurrentUserQueryHandler(IAuthRepository authRepository)
+        public GetCurrentUserQueryHandler(IAuthService authService)
         {
-            _authRepository = authRepository
-                ?? throw new ArgumentNullException(nameof(authRepository));
+            _authService = authService
+                ?? throw new ArgumentNullException(nameof(authService));
         }
 
         public async Task<GetCurrentUserResponse> Handle(GetCurrentUserQuery request, CancellationToken cancellationToken)
         {
-            var user = await  _authRepository.Single(
-                new UserByIdSpecification(request.UserId), cancellationToken);
+            var user = await _authService.GetCurrentUser(request.Claims, cancellationToken);
 
             return new GetCurrentUserResponse
             {
