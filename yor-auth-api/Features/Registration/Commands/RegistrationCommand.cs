@@ -1,14 +1,12 @@
-﻿using yor_database_infrastructure.Models;
+﻿using MediatR;
 
-namespace yor_auth_api.Model
+namespace yor_auth_api.Features.Registration.Commands
 {
-    public class User : BaseModel
+    public class RegistrationCommand : IRequest
     {
         public string FirstName { get; set; }
 
         public string LastName { get; set; }
-
-        public DateTime DateofBirth { get; set; }
 
         public string Email { get; set; }
 
@@ -19,5 +17,7 @@ namespace yor_auth_api.Model
         public string Country { get; set; }
 
         public string City { get; set; }
+
+        public DateTime DateOfBirth { get; set; }
     }
 }
