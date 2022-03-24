@@ -3,11 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.32014.148
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "yor-auth-api", "yor-auth-api\yor-auth-api.csproj", "{E25AE5AE-8083-46EA-A374-00B7D0FE7B28}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "yor-auth-api", "yor-auth-api\yor-auth-api.csproj", "{E25AE5AE-8083-46EA-A374-00B7D0FE7B28}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{FFC9FC52-B823-45C8-A16C-20367D7045B7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "yor-database-infrastructure", "yor-database-infrastructure\yor-database-infrastructure.csproj", "{4F33D562-D025-4D57-B63C-18F5AF463902}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "yor-database-infrastructure", "yor-database-infrastructure\yor-database-infrastructure.csproj", "{4F33D562-D025-4D57-B63C-18F5AF463902}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "yor-search-api", "yor-search-api\yor-search-api.csproj", "{797322DB-9A3A-4A37-A0D2-D2798B25A2F3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,6 +25,10 @@ Global
 		{4F33D562-D025-4D57-B63C-18F5AF463902}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4F33D562-D025-4D57-B63C-18F5AF463902}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4F33D562-D025-4D57-B63C-18F5AF463902}.Release|Any CPU.Build.0 = Release|Any CPU
+		{797322DB-9A3A-4A37-A0D2-D2798B25A2F3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{797322DB-9A3A-4A37-A0D2-D2798B25A2F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{797322DB-9A3A-4A37-A0D2-D2798B25A2F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{797322DB-9A3A-4A37-A0D2-D2798B25A2F3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
