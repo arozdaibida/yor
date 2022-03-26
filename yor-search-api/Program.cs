@@ -33,11 +33,18 @@ builder.Services
 
 var app = builder.Build();
 
+app.UseCors(c =>
+    c.AllowAnyOrigin()
+    .AllowAnyMethod()
+    .AllowAnyHeader());
+
 app
     .UseSwagger()
     .UseAuthentication()
     .UseAuthorization()
     .UseSwaggerUI();
+
+app.UseCors();
 
 app.MapControllers();
 

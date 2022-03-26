@@ -1,7 +1,7 @@
 ﻿using MediatR;
 
 using Microsoft.AspNetCore.Mvc;
-
+using yor_search_api.Features.Params.Queries;
 using yor_search_api.Features.Search.Queries;
 
 namespace yor_search_api.Features
@@ -39,6 +39,15 @@ namespace yor_search_api.Features
             });
 
             return Ok(users);
+        }
+
+        [HttpGet]
+        [Route("params/tags")]
+        public async Task<IActionResult> GetTags()
+        {
+            var tags = await _mediator.Send(new GetTagsQuery());
+
+            return Ok(tags);
         }
     }
 }
