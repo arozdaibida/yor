@@ -1,10 +1,10 @@
 ﻿using MediatR;
 
-using yor_search_api.Models;
+using yor_search_api.Features.Search.Models;
 
 namespace yor_search_api.Features.Search.Queries
 {
-    public class SearchQuery : IRequest<IEnumerable<User>>
+    public class SearchQuery : IRequest<IEnumerable<SearchResponse>>
     {
         public IEnumerable<string> Tags { get; set; }
 

@@ -17,7 +17,12 @@ namespace yor_search_api.Features.Specifications
             int maxAge)
         {
             Select = x =>
-                x.Tags.Any(y => tags.Contains(y));
+                (tags.Count() == 0 || x.Tags.Any(y => tags.Contains(y)))
+                && (string.IsNullOrEmpty(gender) || x.Gender == gender)
+                && (string.IsNullOrEmpty(country) || x.Country == country)
+                && (string.IsNullOrEmpty(city) || x.City == city)
+                && (minAge <= 16 || GetAge(x.DateOfBirth) >= minAge)
+                && (maxAge <= 16 || GetAge(x.DateOfBirth) >= maxAge);
 
             Joins = new List<Expression<Func<User, object>>>
             {
