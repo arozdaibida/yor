@@ -20,6 +20,7 @@ builder.Services
     .GonfigureJwtSettings(builder.Configuration);
 
 builder.Services
+    .AddCors()
     .AddJsonWebToken(builder.Configuration)
     .AddDatabaseContext(builder.Configuration)
     .AddSwaggerDoc()
@@ -33,6 +34,11 @@ builder.Services
     .AddTransient<IAuthService, AuthServices>();
 
 var app = builder.Build();
+
+app.UseCors(c =>
+    c.AllowAnyOrigin()
+    .AllowAnyMethod()
+    .AllowAnyHeader());
 
 app.UseAuthentication();
 app.UseAuthorization();

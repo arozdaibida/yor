@@ -36,7 +36,8 @@ namespace yor_auth_api.Features.Registration.Endpoints
                     Country = req.Country,
                     Email = req.Email,
                     Gender = req.Gender,
-                    Password = req.Password
+                    Password = req.Password,
+                    DateOfBirth = req.DateOfBirth,
                 });
 
                 await SendOkAsync();

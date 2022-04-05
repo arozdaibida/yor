@@ -41,7 +41,7 @@ namespace yor_auth_api.Features.Login.Queries
 
             var token = new LoginResponse
             {
-                Access_Token = JwtHelper.GenerateJwtToken(user, _jwtSettings)
+                Token = JwtHelper.GenerateJwtToken(user, _jwtSettings)
             };
 
             return token;
