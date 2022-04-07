@@ -20,7 +20,7 @@ builder.Services.AddControllers().AddJsonOptions(x =>
                 x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);
 
 builder.Services
-    .AddJsonWebToken(builder.Configuration)
+    //.AddJsonWebToken(builder.Configuration)
     .AddDatabaseContext(builder.Configuration)
     .AddSwaggerGen()
     .AddMediatR(typeof(Program).Assembly);
@@ -43,8 +43,6 @@ app
     .UseAuthentication()
     .UseAuthorization()
     .UseSwaggerUI();
-
-app.UseCors();
 
 app.MapControllers();
 

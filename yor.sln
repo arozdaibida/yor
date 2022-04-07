@@ -9,7 +9,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastru
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "yor-database-infrastructure", "yor-database-infrastructure\yor-database-infrastructure.csproj", "{4F33D562-D025-4D57-B63C-18F5AF463902}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "yor-search-api", "yor-search-api\yor-search-api.csproj", "{797322DB-9A3A-4A37-A0D2-D2798B25A2F3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "yor-search-api", "yor-search-api\yor-search-api.csproj", "{797322DB-9A3A-4A37-A0D2-D2798B25A2F3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "yor-request-api", "yor-request-api\yor-request-api.csproj", "{327F757B-C9C9-40B1-842B-98E40B744E6E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,6 +31,10 @@ Global
 		{797322DB-9A3A-4A37-A0D2-D2798B25A2F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{797322DB-9A3A-4A37-A0D2-D2798B25A2F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{797322DB-9A3A-4A37-A0D2-D2798B25A2F3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{327F757B-C9C9-40B1-842B-98E40B744E6E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{327F757B-C9C9-40B1-842B-98E40B744E6E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{327F757B-C9C9-40B1-842B-98E40B744E6E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{327F757B-C9C9-40B1-842B-98E40B744E6E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
