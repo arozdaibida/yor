@@ -12,7 +12,7 @@
     "yor_request_api": {
       "commandName": "Project",
       "dotnetRunMessages": true,
-      "launchBrowser": true,
+      "launchBrowser": false,
       "launchUrl": "weatherforecast",
       "applicationUrl": "https://localhost:7148;http://localhost:5148",
       "environmentVariables": {

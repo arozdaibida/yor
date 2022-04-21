@@ -11,7 +11,7 @@ namespace yor_database_infrastructure.Contracts
 
         Task<T> Single(ISpecification<T> filter, CancellationToken cancellationToken, params Expression<Func<T, object>>[] includes);
 
-        Task Delete(T body, CancellationToken cancellationToken);
+        void Delete(T body);
 
         void Update(T body);
 

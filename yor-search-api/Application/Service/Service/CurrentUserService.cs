@@ -1,18 +1,16 @@
-﻿using yor_auth_api.Infrastructure.Contracts;
+﻿using System.Security.Claims;
 
-using yor_auth_api.Model;
+using yor_search_api.Features.Specifications;
+using yor_search_api.Infrastructure.Repositories.Contracts;
+using yor_search_api.Models;
 
-using System.Security.Claims;
-
-using yor_auth_api.Features.Specifications;
-
-namespace yor_auth_api.Application.Services.Services
+namespace yor_search_api.Application.Service.Service
 {
-    public class AuthServices : IAuthService
+    public class CurrentUserService: ICurrentUserService
     {
-        private readonly IAuthRepository _repository;
+        private readonly IRepository<User> _repository;
 
-        public AuthServices(IAuthRepository repository)
+        public CurrentUserService(IRepository<User> repository)
         {
             _repository = repository
                 ?? throw new ArgumentNullException(nameof(repository));

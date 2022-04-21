@@ -6,18 +6,18 @@ using yor_request_api.Application.Contracts;
 
 namespace yor_request_api.Features.Specifications
 {
-    public class RequestsBySenderIdSpecification : BaseSpecification<Request>
+    public class RequestByIdSpecification: BaseSpecification<Request>
     {
-        public RequestsBySenderIdSpecification(Guid senderId)
+        public RequestByIdSpecification(Guid requestId)
         {
-            Select = x => x.SenderId == senderId;
+            Select = x => x.Id == requestId;
 
-            OrderByDesc = x => x.CreatedAt;
+            Take = 1;
 
             Joins = new List<Expression<Func<Request, object>>>
             {
-                x => x.Recipient,
-                x => x.Sender
+                x => x.Sender,
+                x => x.Recipient
             };
         }
     }

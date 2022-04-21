@@ -1,5 +1,7 @@
 ﻿using MediatR;
 
+using System.Security.Claims;
+
 using yor_search_api.Features.Search.Models;
 
 namespace yor_search_api.Features.Search.Queries
@@ -17,5 +19,7 @@ namespace yor_search_api.Features.Search.Queries
         public int MinAge { get; set; }
 
         public int MaxAge { get; set; }
+
+        public ClaimsPrincipal Claims { get; set; }
     }
 }

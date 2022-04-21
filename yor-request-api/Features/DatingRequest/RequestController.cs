@@ -33,34 +33,35 @@ namespace yor_request_api.Features.DatingRequest
             try
             {
                 await _mediator.Send(command);
-
-                return Ok();
             }
             catch (Exception)
             {
                 return BadRequest();
             }
+
+            return Ok();
         }
 
         [HttpGet]
         [Route("received")]
         public async Task<IActionResult> ReceivedRequests([FromQuery]Guid userId)
         {
-            var query = new GetUserSentRequestsQuery
+            var query = new GetUserReceivedRequestsQuery
             {
                 UserId = userId
             };
 
+            IEnumerable<RequestResponse> requests;
             try
             {
-                var requests = await _mediator.Send(query);
-                
-                return Ok(requests);
+                requests = await _mediator.Send(query);                
             }
             catch
             {
                 return BadRequest();
             }
+
+            return Ok(requests);
         }
 
         [HttpGet]
@@ -72,22 +73,79 @@ namespace yor_request_api.Features.DatingRequest
                 UserId =userId
             };
 
+            IEnumerable<RequestResponse> requests;
             try
             {
-                var requests = await _mediator.Send(query);
-
-                return Ok(requests);
+                requests = await _mediator.Send(query);
             }
             catch (Exception)
             {
                 return BadRequest();
             }
+
+            return Ok(requests);
         }
 
-        [HttpGet]
-        [Route("test")]
-        public IActionResult Test()
+        [HttpPost]
+        [Route("accept")]
+        public async Task<IActionResult> AcceptRequest([FromBody]RequestIdRequest request)
         {
+            var command = new AcceptRequestCommand
+            {
+                RequestId = request.RequestId
+            };
+
+            try
+            {
+                await _mediator.Send(command);
+            }
+            catch (Exception)
+            {
+                return BadRequest();
+            }
+
+            return Ok();
+        }
+
+        [HttpPost]
+        [Route("reject")]
+        public async Task<IActionResult> RejectRequest([FromBody]RequestIdRequest request)
+        {
+            var command = new RejectRequestCommand
+            {
+                RequestId = request.RequestId
+            };
+
+            try
+            {
+                await _mediator.Send(command);
+            }
+            catch (Exception)
+            {
+                return BadRequest();
+            }
+
+            return Ok();
+        }
+
+        [HttpPost]
+        [Route("cancel")]
+        public async Task<IActionResult> CancelRequest([FromBody]RequestIdRequest request)
+        {
+            var command = new CancelRequestCommand
+            {
+                RequestId = request.RequestId
+            };
+
+            try
+            {
+                await _mediator.Send(command);
+            }
+            catch (Exception)
+            {
+                return BadRequest();
+            }
+
             return Ok();
         }
     }

@@ -35,7 +35,8 @@ namespace yor_search_api.Features
                 Country = country,
                 City = city,
                 MinAge = minAge,
-                MaxAge = maxAge
+                MaxAge = maxAge,
+                Claims = User
             });
 
             return Ok(users);

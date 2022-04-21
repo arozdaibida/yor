@@ -25,9 +25,9 @@ namespace yor_database_infrastructure.Repositories
             _set.Remove(entity);
         }
 
-        public Task Delete(T body, CancellationToken cancellationToken)
+        public void Delete(T body)
         {
-            throw new NotImplementedException();
+            _set.Remove(body);
         }
 
         public IQueryable<T> Get(ISpecification<T> filter, params Expression<Func<T, object>>[] includes)

@@ -7,6 +7,8 @@ using yor_database_infrastructure.Repositories;
 
 using yor_search_api.Application.Configurations;
 using yor_search_api.Application.Extensions;
+using yor_search_api.Application.Service;
+using yor_search_api.Application.Service.Service;
 using yor_search_api.Infrastructure.Repositories;
 using yor_search_api.Infrastructure.Repositories.Contracts;
 using yor_search_api.Infrastructure.SearchUnitOfWork;
@@ -20,16 +22,16 @@ builder.Services.AddControllers().AddJsonOptions(x =>
                 x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);
 
 builder.Services
-    //.AddJsonWebToken(builder.Configuration)
+    .AddJsonWebToken(builder.Configuration)
     .AddDatabaseContext(builder.Configuration)
     .AddSwaggerGen()
     .AddMediatR(typeof(Program).Assembly);
 
 builder.Services
     .AddTransient(typeof(IBaseRepository<>), typeof(BaseRepository<>))
-    .AddTransient<IUserRepository, UserRepository>()
-    .AddTransient<ITagRepository, TagRepository>()
-    .AddTransient<ISearchUnitOfWork, SearchUnitOfWork>();
+    .AddTransient(typeof(IRepository<>), typeof(Repository<>))
+    .AddTransient<ISearchUnitOfWork, SearchUnitOfWork>()
+    .AddTransient<ICurrentUserService, CurrentUserService>();
 
 var app = builder.Build();
 
@@ -47,3 +49,5 @@ app
 app.MapControllers();
 
 app.Run();
+
+//TODO add swagger extension to add token to header

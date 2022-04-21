@@ -13,5 +13,11 @@
         {
             public const string JwtKeys = "JsonWebTokenKeys";
         }
+
+        public static class State
+        {
+            public const string Accepted = "Accepted";
+            public const string Rejected = "Rejected";
+        }
     }
 }

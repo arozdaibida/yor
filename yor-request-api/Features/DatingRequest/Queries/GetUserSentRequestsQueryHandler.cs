@@ -27,11 +27,13 @@ namespace yor_request_api.Features.DatingRequest.Queries
 
         public async Task<IEnumerable<RequestResponse>> Handle(GetUserSentRequestsQuery request, CancellationToken cancellationToken)
         {
-            var sender = await _userRepository.Single(new UserByIdSpecification(request.UserId), cancellationToken)
+            var userByIdQuery = new UserByIdSpecification(request.UserId);
+            var sender = await _userRepository.Single(userByIdQuery, cancellationToken)
                 ?? throw new ArgumentNullException($"There is no user with id: {request.UserId}");
 
+            var requestsBySenderIdQuery = new RequestsBySenderIdSpecification(request.UserId);
             var requests = _requestRepository
-                .Get(new RequestsBySenderIdSpecification(request.UserId))
+                .Get(requestsBySenderIdQuery)
                 .Select(x => RequestResponse.Map(x));
 
             return await requests.ToListAsync(cancellationToken);
