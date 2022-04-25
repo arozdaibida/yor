@@ -13,5 +13,13 @@
         {
             public const string JwtKeys = "JsonWebTokenKeys";
         }
+
+        public static class JwtToken
+        {
+            public static class Claims
+            {
+                public const string UserIdClaim = "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier";
+            }
+        }
     }
 }

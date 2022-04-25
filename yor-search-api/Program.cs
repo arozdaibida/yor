@@ -7,6 +7,8 @@ using yor_database_infrastructure.Repositories;
 
 using yor_search_api.Application.Configurations;
 using yor_search_api.Application.Extensions;
+using yor_search_api.Application.Service;
+using yor_search_api.Application.Service.Service;
 using yor_search_api.Infrastructure.Repositories;
 using yor_search_api.Infrastructure.Repositories.Contracts;
 using yor_search_api.Infrastructure.SearchUnitOfWork;
@@ -27,9 +29,9 @@ builder.Services
 
 builder.Services
     .AddTransient(typeof(IBaseRepository<>), typeof(BaseRepository<>))
-    .AddTransient<IUserRepository, UserRepository>()
-    .AddTransient<ITagRepository, TagRepository>()
-    .AddTransient<ISearchUnitOfWork, SearchUnitOfWork>();
+    .AddTransient(typeof(IRepository<>), typeof(Repository<>))
+    .AddTransient<ISearchUnitOfWork, SearchUnitOfWork>()
+    .AddTransient<ICurrentUserService, CurrentUserService>();
 
 var app = builder.Build();
 
@@ -44,8 +46,8 @@ app
     .UseAuthorization()
     .UseSwaggerUI();
 
-app.UseCors();
-
 app.MapControllers();
 
 app.Run();
+
+//TODO add swagger extension to add token to header

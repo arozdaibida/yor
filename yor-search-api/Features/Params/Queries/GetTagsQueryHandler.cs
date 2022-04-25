@@ -5,14 +5,15 @@ using Microsoft.EntityFrameworkCore;
 using yor_search_api.Features.Params.Models;
 using yor_search_api.Features.Specifications;
 using yor_search_api.Infrastructure.Repositories.Contracts;
+using yor_search_api.Models;
 
 namespace yor_search_api.Features.Params.Queries
 {
     public class GetTagsQueryHandler : IRequestHandler<GetTagsQuery, IEnumerable<TagResponse>>
     {
-        private readonly ITagRepository _tagRepository;
+        private readonly IRepository<Tag> _tagRepository;
 
-        public GetTagsQueryHandler(ITagRepository tagRepository)
+        public GetTagsQueryHandler(IRepository<Tag> tagRepository)
         {
             _tagRepository = tagRepository
                 ?? throw new ArgumentNullException(nameof(tagRepository));

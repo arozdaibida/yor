@@ -2,6 +2,8 @@
 
 using MediatR;
 
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+
 using yor_auth_api.Features.GetCurrentUser.Models;
 using yor_auth_api.Features.GetCurrentUser.Queries;
 
@@ -21,6 +23,7 @@ namespace yor_auth_api.Features.GetCurrentUser.Endpoints
         {
             Verbs(Http.GET);
             Routes("api/auth/me");
+            AuthSchemes(JwtBearerDefaults.AuthenticationScheme);
         }
 
         public override async Task HandleAsync(CancellationToken ct)
