@@ -41,7 +41,7 @@ namespace yor_search_api.Features.Search.Queries
                     request.MaxAge))
                 .Select(x => SearchResponse.Map(x));
 
-            return await users.ToListAsync();
+            return users;
         }
 
     }
